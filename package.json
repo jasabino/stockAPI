@@ -1,0 +1,23 @@
+{
+  "name": "storingapp",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Storing Application",
+  "keywords": [],
+  "author": "",
+  "license": "",
+  "main": "app.js",
+  "dependencies": {
+    "body-parser": "^1.18.1",
+    "express": "^4.12.3",
+    "mongoose": "^4.13.11",
+    "node-env-file": "^0.1.8",
+    "swagger-express-mw": "^0.1.0",
+    "swagger-ui-express": "latest",
+    "yamljs": "^0.3.0"
+  },
+  "scripts": {
+    "start": "swagger project start",
+    "test": "swagger project test"
+  }
+}

@@ -1,0 +1,90 @@
+swagger: "2.0"
+info:
+  version: "0.0.1"
+  title: StoringApp
+host: localhost:10010
+basePath: /
+schemes:
+  - http
+  - https
+consumes:
+  - application/json
+  - application/octet-stream
+  - multipart/form-data
+produces:
+  - text/plain
+  - application/json
+  - multipart/form-data
+paths:
+  /item:
+    x-swagger-router-controller: items
+    post:
+      description: Create a new item in the db
+      operationId: addItem
+      parameters:
+      - in: body
+        name: item
+        description: item to create
+        schema:
+          type: object
+          required:
+            - name
+          properties:
+            name:
+              type: string
+            quantity:
+              type: number
+            unit:
+              type: string
+            expirationDate:
+              type: string
+            picture:
+              type: string
+      responses:
+        "200":
+          $ref: '#/responses/200'
+        "401":
+          $ref: '#/responses/401'
+    get:
+      description: Retrieve the information of the item specified
+      operationId: getItem
+      parameters:
+        - name: id
+          in: query
+          description: Id number of the item to search
+          required: true
+          type: number
+      responses:
+           "200":
+              $ref: '#/responses/200'
+           "401":
+              $ref: '#/responses/401'
+  /swagger:
+    x-swagger-pipe: swagger_raw
+# complex objects have schema definitions
+responses:
+  200:
+    description: Success
+    schema:
+      type: object
+      properties:
+        success:
+          type: boolean
+        response:
+          type: object
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              code:
+                type: string
+              message:
+                type: string
+  400:
+    description: Bad Request
+  401:
+    description: Unauthorized
+  500:
+    description: Internal Server Error
+
