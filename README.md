@@ -1,6 +1,6 @@
-# StroingAPP API Suite
+# Stock app API Suite
 
-API suite for an Storing App created with NodeJS, Express, Swagger and MongoDB
+API suite for an Stock App created with NodeJS, Express, Swagger and MongoDB
 
 For more information please check the documentation on:
 
